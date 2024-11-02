@@ -83,6 +83,9 @@
           <td>
             <select required>
               <option value="" hidden>選択してください</option>
+              @foreach ($categories as $category)
+                <option value="">{{ $category['content'] }}
+              @endforeach
             </select>
           </td>
         </tr>
