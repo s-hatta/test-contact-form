@@ -20,11 +20,11 @@ class ContactController extends Controller
             'last_name',
             'gender',
             'email',
-            'tell',
             'address',
             'building',
             'detail',
         ]);
+        $contact += array('tell' => $request['tell_1'] . $request['tell_2'] . $request['tell_3']);
         return view('confirm', compact('contact'));
     }
 }

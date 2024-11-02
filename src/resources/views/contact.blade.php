@@ -5,7 +5,7 @@
 
 @section('content')
   <div class="contact__content">
-    <form class="contact-form" id="contact-form" method="POST" action="/confirm">
+    <form class="contact-form" method="POST" action="/confirm">
       @csrf
       <table class='contact-table'>
 
@@ -48,12 +48,11 @@
             電話番号 ※
           </td>
           <td>
-            <input type="text" id="tell_1" placeholder="080">
+            <input type="text" name='tell_1' placeholder="080">
             -
-            <input type="text" id="tell_2" placeholder="1234">
+            <input type="text" name='tell_2' placeholder="1234">
             -
-            <input type="text" id="tell_3" placeholder="5678">
-            <input type="hidden" name="tell" id="tell">
+            <input type="text" name='tell_3' placeholder="5678">
           </td>
         </tr>
 
@@ -107,15 +106,4 @@
       <button type="submit" class="contact-form__button--submit">確認画面</button>
     </form>
   </div>
-
-  {{-- 送信ボタンが押されたときに、入力された電話番号3要素を結合してひとつにする --}}
-  <script language="JavaScript">
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      var tell_1 = document.getElementById('tell_1').value;
-      var tell_2 = document.getElementById('tell_2').value;
-      var tell_3 = document.getElementById('tell_3').value;
-      var tell = tell_1 + tell_2 + tell_3;
-      document.getElementById('tell').value = tell;
-    });
-  </script>
 @endsection
