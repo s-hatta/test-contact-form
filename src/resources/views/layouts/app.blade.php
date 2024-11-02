@@ -17,6 +17,7 @@
       </div>
     </div>
   </header>
+  @yield('name')
   @yield('content')
 </body>
 
