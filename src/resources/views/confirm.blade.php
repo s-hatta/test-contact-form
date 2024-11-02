@@ -79,6 +79,7 @@
     </div>
     <div class="form__button">
       <button class="form__button-submit" type="submit">送信</button>
+      <button class="form__button-edit" type="submit">修正</button>
     </div>
   </form>
 @endsection
