@@ -5,7 +5,8 @@
 
 @section('content')
   <div class="contact__content">
-    <form class="contact-form">
+    <form class="contact-form" id="contact-form" method="POST" action="/confirm">
+      @csrf
       <table class='contact-table'>
 
         {{-- お名前 --}}
@@ -14,8 +15,8 @@
             お名前 ※
           </td>
           <td>
-            <input type="text" placeholder="例: 山田">
-            <input type="text" placeholder="例: 太郎">
+            <input type="text" name="first_name" placeholder="例: 山田">
+            <input type="text" name="last_name" placeholder="例: 太郎">
           </td>
         </tr>
 
@@ -25,9 +26,9 @@
             性別 ※
           </td>
           <td>
-            <input type="radio" checked name="gender">男性
-            <input type="radio" name="gender">女性
-            <input type="radio" name="gender">その他
+            <input type="radio" checked name="gender" value="0">男性
+            <input type="radio" name="gender" value="1">女性
+            <input type="radio" name="gender" value="2">その他
           </td>
         </tr>
 
@@ -37,7 +38,7 @@
             メールアドレス ※
           </td>
           <td>
-            <input type="text" placeholder="例: test@example.com">
+            <input type="text" name="email" placeholder="例: test@example.com">
           </td>
         </tr>
 
@@ -47,11 +48,12 @@
             電話番号 ※
           </td>
           <td>
-            <input type="text" placeholder="080">
+            <input type="text" id="tell_1" placeholder="080">
             -
-            <input type="text" placeholder="1234">
+            <input type="text" id="tell_2" placeholder="1234">
             -
-            <input type="text" placeholder="5678">
+            <input type="text" id="tell_3" placeholder="5678">
+            <input type="hidden" name="tell" id="tell">
           </td>
         </tr>
 
@@ -61,7 +63,7 @@
             住所 ※
           </td>
           <td>
-            <input type="text" placeholder="例: 東京都渋谷区千駄々谷1-2-3">
+            <input type="text" name="address" placeholder="例: 東京都渋谷区千駄々谷1-2-3">
           </td>
         </tr>
 
@@ -71,7 +73,7 @@
             建物名
           </td>
           <td>
-            <input type="text" placeholder="例: 千駄ヶ谷マンション101">
+            <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101">
           </td>
         </tr>
 
@@ -81,7 +83,7 @@
             お問い合わせの種類 ※
           </td>
           <td>
-            <select required>
+            <select name="category_id" required>
               <option value="" hidden>選択してください</option>
               @foreach ($categories as $category)
                 <option value="">{{ $category['content'] }}
@@ -96,13 +98,24 @@
             お問い合わせ内容 ※
           </td>
           <td>
-            <textarea placeholder="お問い合わせ内容をご記載ください"></textarea>
+            <textarea name="detail" placeholder="お問い合わせ内容をご記載ください"></textarea>
           </td>
         </tr>
 
       </table>
 
-      <button class="contact-form__button--submit">確認画面</button>
+      <button type="submit" class="contact-form__button--submit">確認画面</button>
     </form>
   </div>
+
+  {{-- 送信ボタンが押されたときに、入力された電話番号3要素を結合してひとつにする --}}
+  <script language="JavaScript">
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      var tell_1 = document.getElementById('tell_1').value;
+      var tell_2 = document.getElementById('tell_2').value;
+      var tell_3 = document.getElementById('tell_3').value;
+      var tell = tell_1 + tell_2 + tell_3;
+      document.getElementById('tell').value = tell;
+    });
+  </script>
 @endsection
