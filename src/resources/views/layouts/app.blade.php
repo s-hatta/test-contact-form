@@ -10,13 +10,13 @@
 
 <body>
 
-  <head class="header">
+  <header class="header">
     <div class="header__inner">
       <div class="header__logo">
         FasionablyLate
       </div>
     </div>
-  </head>
+  </header>
   @yield('content')
 </body>
 
