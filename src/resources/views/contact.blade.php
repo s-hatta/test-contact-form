@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'お問い合わせフォーム')
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/contact.css') }}" />
+@endsection
 @section('name', 'Contact')
 
 @section('content')
