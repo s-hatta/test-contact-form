@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title', '入力確認画面')
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
+@endsection
 @section('name', 'Confirm')
 
 @section('content')
