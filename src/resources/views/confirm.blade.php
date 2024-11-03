@@ -4,7 +4,7 @@
 @section('name', 'Confirm')
 
 @section('content')
-  <form class="form" action="/contacts" method="post">
+  <form class="form" action="/thanks" method="post">
     @csrf
     <div class="confirm-table">
       {{-- お名前 --}}
