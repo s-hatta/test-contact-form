@@ -62,7 +62,7 @@
 
         {{-- 建物名 --}}
         <tr class="confirm-table__row">
-          <th class="confirm-table__header">電話番号</th>
+          <th class="confirm-table__header">建物名</th>
           <td class="confirm-table__text">
             <input type="text" name="building" value="{{ $contact['building'] }}" readonly />
           </td>
