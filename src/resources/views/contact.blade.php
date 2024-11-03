@@ -15,7 +15,7 @@
         {{-- お名前 --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            お名前 ※
+            お名前 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 山田">
@@ -26,7 +26,7 @@
         {{-- 性別 --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            性別 ※
+            性別 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <input type="radio" name="gender" value="0" {{ old('gender', '0') === '0' ? 'checked' : '' }}>男性
@@ -38,7 +38,7 @@
         {{-- メールアドレス --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            メールアドレス ※
+            メールアドレス <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <input type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
@@ -48,7 +48,7 @@
         {{-- 電話番号 --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            電話番号 ※
+            電話番号 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <input type="text" name='tell_1' value="{{ old('tell_1') }}" placeholder="080">
@@ -62,7 +62,7 @@
         {{-- 住所 --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            住所 ※
+            住所 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <input type="text" name="address" value="{{ old('address') }}" placeholder="例: 東京都渋谷区千駄々谷1-2-3">
@@ -82,7 +82,7 @@
         {{-- お問い合わせの種類 --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            お問い合わせの種類 ※
+            お問い合わせの種類 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <select name="category_id" required>
@@ -98,7 +98,7 @@
         {{-- お問い合わせ内容 --}}
         <tr class="contact-table__row">
           <th class="contact-table__header">
-            お問い合わせ内容 ※
+            お問い合わせ内容 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
             <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
