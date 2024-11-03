@@ -107,7 +107,9 @@
 
       </table>
 
-      <button type="submit" class="contact-form__button--submit">確認画面</button>
+      <div class="contact-form__button">
+        <button type="submit" class="contact-form__button-submit">確認画面</button>
+      </div>
     </form>
   </div>
 @endsection
