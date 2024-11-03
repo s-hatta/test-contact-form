@@ -85,8 +85,7 @@
             <select name="category_id" required>
               <option value="" hidden>選択してください</option>
               @foreach ($categories as $category)
-                <option value="{{ $category['content'] }}"
-                  {{ old('category_id') === $category['content'] ? 'selected' : '' }}>
+                <option value="{{ $category['id'] }}" {{ (int) old('category_id') === $category['id'] ? 'selected' : '' }}>
                   {{ $category['content'] }}
               @endforeach
             </select>
