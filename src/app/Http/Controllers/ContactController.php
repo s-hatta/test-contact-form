@@ -23,9 +23,11 @@ class ContactController extends Controller
             'email',
             'address',
             'building',
+            'category_id',
             'detail',
         ]);
         $contact += array('tell' => $request['tell_1'] . $request['tell_2'] . $request['tell_3']);
-        return view('confirm', compact('contact'));
+        $category = Category::find($contact['category_id']);
+        return view('confirm', compact('contact', 'category'));
     }
 }
