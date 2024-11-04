@@ -26,7 +26,10 @@
             <button class="header-nav__button-logout">logout</button>
           </form>
         @else
-          <button class="header-nav__button-register">register</button>
+          <form method="GET" action="{{ route('register') }}">
+            @csrf
+            <button class="header-nav__button-register">register</button>
+          </form>
         @endif
       </div>
     </div>
