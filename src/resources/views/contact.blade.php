@@ -18,8 +18,8 @@
             お名前 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 山田">
-            <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 太郎">
+            <input class="contact-table__item--first-name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 山田">
+            <input class="contact-table__item--last-name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 太郎">
           </td>
         </tr>
 
@@ -29,9 +29,9 @@
             性別 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input type="radio" name="gender" value="0" {{ old('gender', '0') === '0' ? 'checked' : '' }}>男性
-            <input type="radio" name="gender" value="1" {{ old('gender') === '1' ? 'checked' : '' }}>女性
-            <input type="radio" name="gender" value="2" {{ old('gender') === '2' ? 'checked' : '' }}>その他
+            <label><input type="radio" name="gender" value="0" {{ old('gender', '0') === '0' ? 'checked' : '' }}>男性</label>
+            <label><input type="radio" name="gender" value="1" {{ old('gender') === '1' ? 'checked' : '' }}>女性</label>
+            <label><input type="radio" name="gender" value="2" {{ old('gender') === '2' ? 'checked' : '' }}>その他</label>
           </td>
         </tr>
 
@@ -41,7 +41,7 @@
             メールアドレス <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
+            <input class="contact-table__item--text" type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
           </td>
         </tr>
 
@@ -51,11 +51,11 @@
             電話番号 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input type="text" name='tell_1' value="{{ old('tell_1') }}" placeholder="080">
-            -
-            <input type="text" name='tell_2' value="{{ old('tell_2') }}" placeholder="1234">
-            -
-            <input type="text" name='tell_3' value="{{ old('tell_3') }}" placeholder="5678">
+            <input class="contact-table__item--tell" type="text" name='tell_1' value="{{ old('tell_1') }}" placeholder="080">
+            <span>-</span>
+            <input class="contact-table__item--tell" type="text" name='tell_2' value="{{ old('tell_2') }}" placeholder="1234">
+            <span>-</span>
+            <input class="contact-table__item--tell" type="text" name='tell_3' value="{{ old('tell_3') }}" placeholder="5678">
           </td>
         </tr>
 
@@ -65,7 +65,7 @@
             住所 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input type="text" name="address" value="{{ old('address') }}" placeholder="例: 東京都渋谷区千駄々谷1-2-3">
+            <input class="contact-table__item--text" type="text" name="address" value="{{ old('address') }}" placeholder="例: 東京都渋谷区千駄々谷1-2-3">
           </td>
         </tr>
 
@@ -75,7 +75,7 @@
             建物名
           </th>
           <td class="contact-table__item">
-            <input type="text" name="building" value="{{ old('building') }}" placeholder="例: 千駄ヶ谷マンション101">
+            <input class="contact-table__item--text" type="text" name="building" value="{{ old('building') }}" placeholder="例: 千駄ヶ谷マンション101">
           </td>
         </tr>
 

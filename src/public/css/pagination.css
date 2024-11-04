@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.pagination-box {
+    font-size: 18px;
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    border-left: solid;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #8B7969;
+}
+
+.pagination-box:last-child {
+    font-size: 18px;
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    border-right: solid;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #8B7969;
+}
+
+.pagination-box[part="now-page"] {
+    background: #8B7969;
+}
+
+.pagination-box__now-page {
+    background: #8B7969;
+    color: #fff;
+}

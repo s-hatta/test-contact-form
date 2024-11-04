@@ -1,0 +1,25 @@
+.contacts-table {
+    margin: auto;
+    max-width: 1183;
+}
+
+.contacts-table__row-header {
+    height: 59px;
+    background: #8B7969;
+}
+
+.contacts-table__header {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.contacts-table__row-item {
+
+    height: 73px;
+    text-align: center;
+    border-width: 1px;
+    border-color: #e0dfde;
+    border: solid;
+}
