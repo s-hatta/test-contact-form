@@ -23,7 +23,7 @@
         @if (Auth::check())
           <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button class="header-nav__button-logout">logput</button>
+            <button class="header-nav__button-logout">logout</button>
           </form>
         @else
           <button class="header-nav__button-register">register</button>
