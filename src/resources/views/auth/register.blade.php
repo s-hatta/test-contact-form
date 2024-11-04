@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 @section('title', '登録画面')
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/register.css') }}">
