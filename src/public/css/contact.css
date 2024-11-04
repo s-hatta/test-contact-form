@@ -1,0 +1,100 @@
+.contact-form {
+    margin: auto;
+    max-width: 972px;
+}
+
+.contact-table {
+    border-collapse: separate;
+    border-spacing: 0 16px;
+}
+
+.contact-table__header {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: left;
+    width: 35%;
+}
+
+.contact-table__header .color-red {
+    color: red;
+}
+
+.contact-table__item {
+    width: 65%;
+}
+
+.contact-table__item--text {
+    width: 100%;
+}
+
+.contact-table__item--tell {
+    width: 178.12px;
+    height: 38px;
+}
+
+.contact-table__item input[type="text"] {
+    background: #F4F4F4;
+    height: 38px;
+    border: none;
+    padding-left: 23px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.24px;
+    text-align: left;
+}
+
+.contact-table__item input[type="radio"] {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    margin-left: 16px;
+    vertical-align: -2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.contact-table__item input:checked {
+    background: #8B7969;
+}
+
+.contact-table__item select {
+    background: #F4F4F4;
+    width: 331.68px;
+    height: 38px;
+    border: none;
+    padding-left: 23px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.24px;
+    text-align: left;
+}
+
+.contact-table__item textarea {
+    width: 100%;
+    padding: 16px 23px;
+    resize: none;
+    border: none;
+    background: #F4F4F4;
+    height: 129px;
+}
+
+.contact-form__button {
+    margin: auto;
+    text-align: center;
+}
+
+.contact-form__button-submit {
+    width: 160px;
+    height: 46px;
+    border: none;
+    margin-top: 50px;
+    padding: 10px 40px;
+    gap: 10px;
+    color: #ffffff;
+    background: #82756a;
+    font-size: 20px;
+    cursor: pointer;
+}
