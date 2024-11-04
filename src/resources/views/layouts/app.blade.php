@@ -20,6 +20,7 @@
         FasionablyLate
       </div>
     </div>
+    @yield('header-extend')
   </header>
   <main class="main">
     <div class="main__title">
