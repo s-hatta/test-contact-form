@@ -18,7 +18,8 @@
 @section('content')
   {{-- 検索フォーム --}}
   <div class="contact-search">
-    <form class="search-form">
+    <form class="search-form" method="POST" action="/admin">
+      @csrf
       <div class="search-form__item">
         {{-- 検索欄（名前、メールアドレス） --}}
         <div class="search-form__item--text">
@@ -47,7 +48,7 @@
         </div>
       </div>
       <div class="search-form__submit">
-        <button class="search-form__submit-button">検索</button>
+        <button class="search-form__submit-button" type="submit">検索</button>
       </div>
     </form>
     <form class="reset-form">
@@ -62,7 +63,7 @@
       <button class="control__export--button">エクスポート</button>
     </div>
     <div class="control__pagination">
-      {{ $contacts->links('layouts.pagination') }}
+      {{ $contacts->appends(request()->query())->links('layouts.pagination') }}
     </div>
   </div>
 

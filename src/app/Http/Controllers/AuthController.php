@@ -11,10 +11,21 @@ use App\Models\Category;
 
 class AuthController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::Paginate(7)->onEachSide(2);
-        $categories = Category::get()->all();
+        if ($request->has('gender')) {
+            $gender = $request['gender'];
+            $params = [
+                'gender' => $gender,
+            ];
+            $contacts = Contact::where([
+                ['gender', '=', $gender],
+            ])->Paginate(7)->withQueryString()->onEachSide(2);
+            $contacts->appends($params);
+        } else {
+            $contacts = Contact::Paginate(7)->onEachSide(2);
+        }
+        $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }
 }
