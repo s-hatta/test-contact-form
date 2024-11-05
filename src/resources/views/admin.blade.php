@@ -18,43 +18,85 @@
 @section('content')
   {{-- 検索フォーム --}}
   <div class="contact-search">
-    <form>
-      <input type="text">
-      <select name="gender">
-        <option value="" hidden>性別</option>
-      </select>
-      <select name="category_id">
-        <option value="" hidden>お問い合わせの種類</option>
-      </select>
-      <input type="date">
-      <button>検索</button>
-      <button>リセット</button>
+    <form class="search-form">
+      <div class="search-form__item">
+        {{-- 検索欄（名前、メールアドレス） --}}
+        <div class="search-form__item--text">
+          <input type="text" class="search-form__item--text-input" placeholder="名前やメールドアレスを入力してください">
+        </div>
+        {{-- 性別 --}}
+        <div class="search-form__gender">
+          <select name="gender" class="search-form__item--gender-select">
+            <option value="" hidden>性別</option>
+            <option value="4">全て</option>
+            <option value="0">男性</option>
+            <option value="1">女性</option>
+            <option value="2">その他</option>
+          </select>
+        </div>
+        <div class="search-form__category">
+          <select name="category_id" class="search-form__item--category-select">
+            <option value="" hidden>お問い合わせの種類</option>
+            @foreach ($categories as $category)
+              <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="search-form__item--date">
+          <input type="date" class="search-form__item--date-input">
+        </div>
+      </div>
+      <div class="search-form__submit">
+        <button class="search-form__submit-button">検索</button>
+      </div>
+    </form>
+    <form class="reset-form">
+      <div class="reset-form__submit">
+        <button class="reset-form__submit-button">リセット</button>
+      </div>
     </form>
   </div>
 
-  <button>エクスポート</button>
-
-  {{-- ページネーション --}}
-  {{ $contacts->links('layouts.pagination') }}
+  <div class="control">
+    <div class="control__export">
+      <button class="control__export--button">エクスポート</button>
+    </div>
+    <div class="control__pagination">
+      {{ $contacts->links('layouts.pagination') }}
+    </div>
+  </div>
 
   {{-- お問い合わせテーブル --}}
   <table class='contacts-table'>
 
     <tr class="contacts-table__row-header">
-      <th class="contacts-table__header">お名前</th>
-      <th class="contacts-table__header">性別</th>
-      <th class="contacts-table__header">メールアドレス</th>
-      <th class="contacts-table__header">お問い合わせの種類</th>
-      <th class="contacts-table__header"></th>
+      <th class="contacts-table__header-name">お名前</th>
+      <th class="contacts-table__header-gender">性別</th>
+      <th class="contacts-table__header-email">メールアドレス</th>
+      <th class="contacts-table__header-category">お問い合わせの種類</th>
+      <th class="contacts-table__header-button"></th>
     </tr>
 
     @foreach ($contacts as $contact)
       <tr class="contacts-table__row-item">
         <td>{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
-        <td>{{ $contact['gender'] }}</td>
+        <td>
+          @switch($contact['gender'])
+            @case(0)
+              男性
+            @break
+
+            @case(1)
+              女性
+            @break
+
+            @default
+              その他
+          @endswitch
+        </td>
         <td>{{ $contact['email'] }}</td>
         <td>{{ $contact['category']['content'] }}</td>
-        <td><button>詳細</button></td>
+        <td><button class="contacts-table__row-item--input">詳細</button></td>
       </tr>
     @endforeach
   </table>
