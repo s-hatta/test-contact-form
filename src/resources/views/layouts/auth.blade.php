@@ -20,17 +20,7 @@
         FasionablyLate
       </div>
       <div class="header-nav">
-        @if (Auth::check())
-          <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button class="header-nav__button-logout">logout</button>
-          </form>
-        @else
-          <form method="GET" action="{{ route('register') }}">
-            @csrf
-            <button class="header-nav__button-register">register</button>
-          </form>
-        @endif
+        @yield('header-nav')
       </div>
     </div>
   </header>

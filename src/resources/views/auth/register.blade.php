@@ -3,6 +3,12 @@
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 @endsection
+@section('header-nav')
+  <form method="GET" action="{{ route('login') }}">
+    @csrf
+    <button class="header-nav__button">login</button>
+  </form>
+@endsection
 @section('name', 'Admin')
 
 @section('content')

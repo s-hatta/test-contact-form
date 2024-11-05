@@ -5,6 +5,14 @@
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/pagination.css') }}" />
 @endsection
+@section('header-nav')
+  @if (Auth::check())
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button class="header-nav__button">logout</button>
+    </form>
+  @endif
+@endsection
 @section('name', 'Admin')
 
 @section('content')
