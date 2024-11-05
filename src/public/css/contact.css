@@ -82,7 +82,10 @@
 }
 
 .contact-form__button {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 33px;
     text-align: center;
 }
 
