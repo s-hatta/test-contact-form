@@ -23,7 +23,7 @@
       <div class="search-form__item">
         {{-- 検索欄（名前、メールアドレス） --}}
         <div class="search-form__item--text">
-          <input type="text" class="search-form__item--text-input" placeholder="名前やメールドアレスを入力してください">
+          <input name="text" type="text" class="search-form__item--text-input" placeholder="名前やメールドアレスを入力してください">
         </div>
         {{-- 性別 --}}
         <div class="search-form__gender">
@@ -44,7 +44,7 @@
           </select>
         </div>
         <div class="search-form__item--date">
-          <input type="date" class="search-form__item--date-input">
+          <input name="date" type="date" class="search-form__item--date-input">
         </div>
       </div>
       <div class="search-form__submit">
