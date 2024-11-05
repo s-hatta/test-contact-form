@@ -15,6 +15,8 @@
   <div class="login__content">
     <form class="form" action="/login" method="post">
       @csrf
+
+      {{-- メールアドレス --}}
       <div class="form__group">
         <div class="form__group-title">
           <span class="form__label--item">メールアドレス</span>
@@ -30,6 +32,8 @@
           </div>
         </div>
       </div>
+
+      {{-- パスワード --}}
       <div class="form__group">
         <div class="form__group-title">
           <span class="form__label--item">パスワード</span>
@@ -45,6 +49,8 @@
           </div>
         </div>
       </div>
+
+      {{-- ログインボタン --}}
       <div class="form__button">
         <button class="form__button-submit" type="submit">ログイン</button>
       </div>
