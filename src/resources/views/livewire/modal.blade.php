@@ -6,14 +6,20 @@
       <div class="modal-wrapper">
         <a href="#" class="close" wire:click="closeModal()">&times;</a>
         <div class="modal-content">
-          <table>
-            <tr>
-              <th>お名前</th>
-              <td>{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</td>
+          <table class="modal-table">
+
+            {{-- お名前 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">お名前</th>
+              <td class="modal-table__column-item">
+                {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
+              </td>
             </tr>
-            <tr>
-              <th>性別</th>
-              <td>
+
+            {{-- 性別 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">性別</th>
+              <td class="modal-table__column-item">
                 @switch($contact['gender'])
                   @case(0)
                     男性
@@ -28,29 +34,41 @@
                 @endswitch
               </td>
             </tr>
-            <tr>
-              <th>メールアドレス</th>
-              <td>{{ $contact['email'] }}</td>
+
+            {{-- メールアドレス --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">メールアドレス</th>
+              <td class="modal-table__column-item">{{ $contact['email'] }}</td>
             </tr>
-            <tr>
-              <th>電話番号</th>
-              <td>{{ $contact['tell'] }}</td>
+
+            {{-- 電話番号 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">電話番号</th>
+              <td class="modal-table__column-item">{{ $contact['tell'] }}</td>
             </tr>
-            <tr>
-              <th>住所</th>
-              <td>{{ $contact['address'] }}</td>
+
+            {{-- 住所 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">住所</th>
+              <td class="modal-table__column-item">{{ $contact['address'] }}</td>
             </tr>
-            <tr>
-              <th>建物名</th>
-              <td>{{ $contact['building'] }}</td>
+
+            {{-- 建物名 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">建物名</th>
+              <t class="modal-table__column-item">{{ $contact['building'] }}</t>
             </tr>
-            <tr>
-              <th>お問い合わせの種類</th>
-              <td>{{ $contact['category']['content'] }}</td>
+
+            {{-- お問い合わせの種類 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">お問い合わせの種類</th>
+              <td class="modal-table__column-item">{{ $contact['category']['content'] }}</td>
             </tr>
-            <tr>
-              <th>お問い合わせ内容</th>
-              <td>{{ $contact['detail'] }}</td>
+
+            {{-- お問い合わせ内容 --}}
+            <tr class="modal-table__row">
+              <th class="modal-table__column-header">お問い合わせ内容</th>
+              <td class="modal-table__column-item">{{ $contact['detail'] }}</td>
             </tr>
           </table>
         </div>
