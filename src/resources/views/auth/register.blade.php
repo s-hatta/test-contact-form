@@ -15,6 +15,8 @@
   <div class="register__content">
     <form class="form" action="{{ route('register') }}" method="post">
       @csrf
+
+      {{-- お名前 --}}
       <div class="form__group">
         <div class="form__group-title">
           <span class="form__label--item">お名前</span>
@@ -30,6 +32,8 @@
           </div>
         </div>
       </div>
+
+      {{-- メールアドレス --}}
       <div class="form__group">
         <div class="form__group-title">
           <span class="form__label--item">メールアドレス</span>
@@ -45,6 +49,8 @@
           </div>
         </div>
       </div>
+
+      {{-- パスワード --}}
       <div class="form__group">
         <div class="form__group-title">
           <span class="form__label--item">パスワード</span>
@@ -60,6 +66,8 @@
           </div>
         </div>
       </div>
+
+      {{-- 登録ボタン --}}
       <div class="form__button">
         <button class="form__button-submit" type="submit">登録</button>
       </div>
