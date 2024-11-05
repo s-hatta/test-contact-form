@@ -17,15 +17,6 @@ class AdminController extends Controller
         $categories = Category::all();
         $params = [];
         $query = Contact::query();
-        if (!is_null($request['text'])) {
-            $params = $params + ['text' => $request['text']];
-            $text = str_replace(' ', '', $request['text'],);
-            $text = str_replace('　', '', $text,);
-            $query = $query->orwhere('email', 'like', '%' . $text . '%');
-            $query = $query->orWhere('first_name', 'like', '%' . $text . '%');
-            $query = $query->orWhere('last_name', 'like', '%' . $text . '%');
-            $query = $query->orWhereRaw('CONCAT(last_name, "", first_name) LIKE ? ', '%' . $text . '%');
-        }
 
         if (!is_null($request['gender'])) {
             if ($request['gender'] != "4") {
@@ -41,6 +32,16 @@ class AdminController extends Controller
         if (!is_null($request['date'])) {
             $params = $params + ['date' => $request['date']];
             $query = $query->whereDate('created_at', $request['date']);
+        }
+
+        if (!is_null($request['text'])) {
+            $params = $params + ['text' => $request['text']];
+            $text = str_replace(' ', '', $request['text'],);
+            $text = str_replace('　', '', $text,);
+            $query = $query->where('email', 'like', '%' . $text . '%')
+                ->orWhere('first_name', 'like', '%' . $text . '%')
+                ->orWhere('last_name', 'like', '%' . $text . '%')
+                ->orWhereRaw('CONCAT(last_name, "", first_name) LIKE ? ', '%' . $text . '%');
         }
         $contacts = $query->Paginate(7)->withQueryString()->onEachSide(2);
         $contacts->appends($params);
