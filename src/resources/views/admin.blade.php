@@ -54,7 +54,7 @@
         <td>{{ $contact['gender'] }}</td>
         <td>{{ $contact['email'] }}</td>
         <td>{{ $contact['category']['content'] }}</td>
-        <td><button>削除</button></td>
+        <td><button>詳細</button></td>
       </tr>
     @endforeach
   </table>
