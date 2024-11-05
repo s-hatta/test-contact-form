@@ -51,11 +51,9 @@
         <button class="search-form__submit-button" type="submit">検索</button>
       </div>
     </form>
-    <form class="reset-form">
-      <div class="reset-form__submit">
-        <button class="reset-form__submit-button">リセット</button>
-      </div>
-    </form>
+    <div class="reset-form__submit">
+      <a href="/admin">リセット</a>
+    </div>
   </div>
 
   <div class="control">
