@@ -4,6 +4,7 @@
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/pagination.css') }}" />
+  @livewireStyles
 @endsection
 @section('header-nav')
   @if (Auth::check())
@@ -95,8 +96,11 @@
         </td>
         <td>{{ $contact['email'] }}</td>
         <td>{{ $contact['category']['content'] }}</td>
-        <td><button class="contacts-table__row-item--input">詳細</button></td>
+        <td>
+          <livewire:modal :params="$contact['id']" />
+        </td>
       </tr>
     @endforeach
   </table>
+  @livewireScripts
 @endsection
