@@ -12,13 +12,10 @@
 <body>
   <div class="content-thanks">
     <div class="content-thanks__item">
-      <div class="content-thanks__item-text">
+      <div class="content-thanks__item--text">
         お問い合わせありがとうございました。
       </div>
-      <form method="GET", action="/">
-        @csrf
-        <button class="content-thanks__item-submit" type="submit">HOME</button>
-      </form>
+      <a href="/" class="content-thanks__item--return-home">HOME</a>
     </div>
   </div>
   <label class="background-text">Thank you</label>

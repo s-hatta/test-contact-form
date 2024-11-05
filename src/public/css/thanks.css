@@ -16,13 +16,13 @@
     align-items: center;
 }
 
-.content-thanks__item-text {
+.content-thanks__item--text {
     font-size: 30px;
     font-weight: 700;
     color: #8b7969;
 }
 
-.content-thanks__item-submit {
+.content-thanks__item--return-home {
     width: 140px;
     height: 46px;
     background: #82756A;
@@ -31,6 +31,9 @@
 
     font-size: 20px;
     color: #fff;
+    text-align: center;
+    text-decoration: none;
+    line-height: 46px;
 
     cursor: pointer;
 }
