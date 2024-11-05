@@ -43,6 +43,24 @@
     font-weight: 400;
 }
 
+.header-nav__text {
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    background: #f0f0f0;
+
+    border: solid;
+    border-width: 1px;
+    border-color: #d9c6b5;
+
+    color: #d9c6b5;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    line-height: 34px;
+}
+
 .main {
     margin: auto;
     background: #fff;

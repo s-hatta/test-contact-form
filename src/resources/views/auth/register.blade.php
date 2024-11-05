@@ -4,10 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 @endsection
 @section('header-nav')
-  <form method="GET" action="{{ route('login') }}">
-    @csrf
-    <button class="header-nav__button">login</button>
-  </form>
+  <a href="/login" class="header-nav__text">login</a>
 @endsection
 @section('name', 'Admin')
 
