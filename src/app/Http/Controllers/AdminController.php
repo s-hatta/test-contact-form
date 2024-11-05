@@ -9,7 +9,7 @@ use App\Models\Contact;
 use App\Actions\Fortify\CreateNewUser;
 use App\Models\Category;
 
-class AuthController extends Controller
+class AdminController extends Controller
 {
     public function index(Request $request)
     {
