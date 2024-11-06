@@ -56,7 +56,7 @@
             {{-- 建物名 --}}
             <tr class="modal-table__row">
               <th class="modal-table__column-header">建物名</th>
-              <t class="modal-table__column-item">{{ $contact['building'] }}</t>
+              <td class="modal-table__column-item">{{ $contact['building'] }}</td>
             </tr>
 
             {{-- お問い合わせの種類 --}}
