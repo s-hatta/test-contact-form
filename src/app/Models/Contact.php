@@ -26,6 +26,17 @@ class Contact extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public static function getGenderString($index): string
+    {
+        if ($index == 0) {
+            return '男性';
+        } else if ($index == 1) {
+            return '女性';
+        } else {
+            return 'その他';
+        }
+    }
+
     public function scopeCategorySearch($query, $category_id)
     {
         if (!empty($category_id)) {
