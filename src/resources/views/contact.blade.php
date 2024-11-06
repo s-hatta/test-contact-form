@@ -85,7 +85,7 @@
             お問い合わせの種類 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <select name="category_id" required>
+            <select name="category_id">
               <option value="" hidden>選択してください</option>
               @foreach ($categories as $category)
                 <option value="{{ $category['id'] }}" {{ (int) old('category_id') === $category['id'] ? 'selected' : '' }}>
