@@ -49,6 +49,13 @@ class AdminController extends Controller
         return view('admin', compact('contacts', 'categories', 'request'));
     }
 
+    public function destroy(Request $request)
+    {
+        Contact::find($request->id)->delete();
+
+        return redirect('/admin');
+    }
+
     public function export(Request $request)
     {
         $query = Contact::query();
