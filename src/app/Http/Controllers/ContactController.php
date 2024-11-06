@@ -22,29 +22,36 @@ class ContactController extends Controller
             'last_name',
             'gender',
             'email',
+            'tell_1',
+            'tell_2',
+            'tell_3',
             'address',
             'building',
             'category_id',
             'detail',
         ]);
-        $contact += array('tell' => $request['tell_1'] . $request['tell_2'] . $request['tell_3']);
+
         $category = Category::find($contact['category_id']);
         return view('confirm', compact('contact', 'category'));
     }
 
     public function store(Request $request)
     {
+        if ($request->input('back') == 'back') {
+            return redirect('')->withInput();
+        }
+
         $contact = $request->only([
             'first_name',
             'last_name',
             'gender',
             'email',
-            'tell',
             'address',
             'building',
             'category_id',
             'detail',
         ]);
+        $contact += array('tell' => $request['tell_1'] . $request['tell_2'] . $request['tell_3']);
         Contact::create($contact);
         return view('thanks');
     }
