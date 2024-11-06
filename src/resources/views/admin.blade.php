@@ -59,7 +59,10 @@
 
   <div class="control">
     <div class="control__export">
-      <button class="control__export--button">エクスポート</button>
+      <form class="export-form" method="GET" action="/admin/export">
+        @csrf
+        <button class="control__export--button">エクスポート</button>
+      </form>
     </div>
     <div class="control__pagination">
       {{ $contacts->appends(request()->query())->links('layouts.pagination') }}

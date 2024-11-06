@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Contact;
@@ -46,5 +47,56 @@ class AdminController extends Controller
         $contacts = $query->Paginate(7)->withQueryString()->onEachSide(2);
         $contacts->appends($params);
         return view('admin', compact('contacts', 'categories', 'request'));
+    }
+
+    public function export()
+    {
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename=問い合わせリスト.csv',
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $callback = function () {
+            $createCsvFile = fopen('php://output', 'w');
+
+            /* BOMを追加（Excelで開いたときに文字化けしないように）*/
+            fputs($createCsvFile, "\xEF\xBB\xBF");
+
+            $columns = [
+                'ID',
+                '名前',
+                '性別',
+                'メールアドレス',
+                '電話番号',
+                '住所',
+                '建物名',
+                'お問い合わせの種類',
+                'お問い合わせ内容',
+                'お問い合わせ日時',
+            ];
+            fputcsv($createCsvFile, $columns);
+
+            $contacts = Contact::all();
+            foreach ($contacts as $contact) {
+                $csv = [
+                    $contact->id,
+                    $contact->last_name . '　' . $contact->first_name,
+                    Contact::getGenderString($contact->gender),
+                    $contact->email,
+                    $contact->tell,
+                    $contact->address,
+                    $contact->building,
+                    $contact->category->content,
+                    $contact->detail,
+                    $contact->created_at,
+                ];
+                fputcsv($createCsvFile, $csv);
+            }
+            fclose($createCsvFile);
+        };
+        return Response::stream($callback, 200, $headers);
     }
 }
