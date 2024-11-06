@@ -24,28 +24,28 @@
       <div class="search-form__item">
         {{-- 検索欄（名前、メールアドレス） --}}
         <div class="search-form__item--text">
-          <input name="text" type="text" class="search-form__item--text-input" placeholder="名前やメールドアレスを入力してください">
+          <input name="text" type="text" class="search-form__item--text-input" placeholder="名前やメールドアレスを入力してください" value="{{ isset($request['text']) ? $request['text'] : '' }}">
         </div>
         {{-- 性別 --}}
         <div class="search-form__gender">
           <select name="gender" class="search-form__item--gender-select">
             <option value="" hidden>性別</option>
-            <option value="4">全て</option>
-            <option value="0">男性</option>
-            <option value="1">女性</option>
-            <option value="2">その他</option>
+            <option value="4" {{ isset($request['gender']) ? ($request['gender'] == '4' ? 'selected' : '') : '' }}>全て</option>
+            <option value="0" {{ isset($request['gender']) ? ($request['gender'] == '0' ? 'selected' : '') : '' }}>男性</option>
+            <option value="1" {{ isset($request['gender']) ? ($request['gender'] == '1' ? 'selected' : '') : '' }}>女性</option>
+            <option value="2" {{ isset($request['gender']) ? ($request['gender'] == '2' ? 'selected' : '') : '' }}>その他</option>
           </select>
         </div>
         <div class="search-form__category">
           <select name="category_id" class="search-form__item--category-select">
             <option value="" hidden>お問い合わせの種類</option>
             @foreach ($categories as $category)
-              <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+              <option value="{{ $category['id'] }}" {{ isset($request['category_id']) ? ($request['category_id'] == $category['id'] ? 'selected' : '') : '' }}>{{ $category['content'] }}</option>
             @endforeach
           </select>
         </div>
         <div class="search-form__item--date">
-          <input name="date" type="date" class="search-form__item--date-input">
+          <input name="date" type="date" class="search-form__item--date-input" value="{{ isset($request['date']) ? $request['date'] : '' }}">
         </div>
       </div>
       <div class="search-form__submit">

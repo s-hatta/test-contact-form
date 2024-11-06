@@ -45,6 +45,6 @@ class AdminController extends Controller
         }
         $contacts = $query->Paginate(7)->withQueryString()->onEachSide(2);
         $contacts->appends($params);
-        return view('admin', compact('contacts', 'categories'));
+        return view('admin', compact('contacts', 'categories', 'request'));
     }
 }
