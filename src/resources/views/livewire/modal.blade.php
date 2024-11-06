@@ -19,20 +19,7 @@
             {{-- 性別 --}}
             <tr class="modal-table__row">
               <th class="modal-table__column-header">性別</th>
-              <td class="modal-table__column-item">
-                @switch($contact['gender'])
-                  @case(0)
-                    男性
-                  @break
-
-                  @case(1)
-                    女性
-                  @break
-
-                  @default
-                    その他
-                @endswitch
-              </td>
+              <td class="modal-table__column-item">{{$contact->getGenderString($contact['gender'])}}</td>
             </tr>
 
             {{-- メールアドレス --}}
