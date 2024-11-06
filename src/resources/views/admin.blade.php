@@ -59,8 +59,11 @@
 
   <div class="control">
     <div class="control__export">
-      <form class="export-form" method="GET" action="/admin/export">
-        @csrf
+      <form class="export-form" method="GET" action="{{ route('admin.export') }}">
+        <input type="hidden" name="text" value="{{ request('text') }}">
+        <input type="hidden" name="gender" value="{{ request('gender') }}">
+        <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+        <input type="hidden" name="date" value="{{ request('date') }}">
         <button class="control__export--button">エクスポート</button>
       </form>
     </div>

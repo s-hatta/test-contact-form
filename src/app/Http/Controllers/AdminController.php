@@ -49,23 +49,47 @@ class AdminController extends Controller
         return view('admin', compact('contacts', 'categories', 'request'));
     }
 
-    public function export()
+    public function export(Request $request)
     {
+        $query = Contact::query();
+
+        if ($request->filled('gender') && $request->gender != "4") {
+            $query->where('gender', $request->gender);
+        }
+
+        if ($request->filled('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', $request->date);
+        }
+
+        if ($request->filled('text')) {
+            $text = str_replace(['　', ' '], '', $request->text);
+            $query->where(function ($q) use ($text) {
+                $q->where('email', 'like', '%' . $text . '%')
+                    ->orWhere('first_name', 'like', '%' . $text . '%')
+                    ->orWhere('last_name', 'like', '%' . $text . '%')
+                    ->orWhereRaw('CONCAT(last_name, "", first_name) LIKE ?', ['%' . $text . '%']);
+            });
+        }
+
         $headers = [
-            'Content-Type' => 'text/csv',
+            'Content-Type' => 'text/csv; charset=UTF-8',
             'Content-Disposition' => 'attachment; filename=問い合わせリスト.csv',
             'Pragma' => 'no-cache',
             'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
             'Expires' => '0',
         ];
 
-        $callback = function () {
+        $callback = function () use ($query) {
             $createCsvFile = fopen('php://output', 'w');
 
             /* BOMを追加（Excelで開いたときに文字化けしないように）*/
             fputs($createCsvFile, "\xEF\xBB\xBF");
 
-            $columns = [
+            fputcsv($createCsvFile, [
                 'ID',
                 '名前',
                 '性別',
@@ -75,28 +99,28 @@ class AdminController extends Controller
                 '建物名',
                 'お問い合わせの種類',
                 'お問い合わせ内容',
-                'お問い合わせ日時',
-            ];
-            fputcsv($createCsvFile, $columns);
+                'お問い合わせ日時'
+            ]);
 
-            $contacts = Contact::all();
-            foreach ($contacts as $contact) {
-                $csv = [
-                    $contact->id,
-                    $contact->last_name . '　' . $contact->first_name,
-                    Contact::getGenderString($contact->gender),
-                    $contact->email,
-                    $contact->tell,
-                    $contact->address,
-                    $contact->building,
-                    $contact->category->content,
-                    $contact->detail,
-                    $contact->created_at,
-                ];
-                fputcsv($createCsvFile, $csv);
-            }
+            $query->chunk(1000, function ($contacts) use ($createCsvFile) {
+                foreach ($contacts as $contact) {
+                    fputcsv($createCsvFile, [
+                        $contact->id,
+                        $contact->last_name . '　' . $contact->first_name,
+                        Contact::getGenderString($contact->gender),
+                        $contact->email,
+                        $contact->tell,
+                        $contact->address,
+                        $contact->building,
+                        $contact->category->content,
+                        $contact->detail,
+                        $contact->created_at,
+                    ]);
+                }
+            });
             fclose($createCsvFile);
         };
+
         return Response::stream($callback, 200, $headers);
     }
 }
