@@ -57,6 +57,7 @@
     </div>
   </div>
 
+  {{-- その他操作系 --}}
   <div class="control">
     <div class="control__export">
       <form class="export-form" method="GET" action="{{ route('admin.export') }}">
