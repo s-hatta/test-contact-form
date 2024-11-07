@@ -21,44 +21,42 @@
   <div class="contact-search">
     <form class="search-form" method="POST" action="/admin">
       @csrf
+      {{-- 検索欄（名前、メールアドレス） --}}
       <div class="search-form__item">
-        {{-- 検索欄（名前、メールアドレス） --}}
-        <div class="search-form__item--text">
-          <input name="text" type="text" class="search-form__item--text-input" placeholder="名前やメールドアレスを入力してください" value="{{ isset($request['text']) ? $request['text'] : '' }}">
-        </div>
-        {{-- 性別 --}}
-        <div class="search-form__gender">
-          <select name="gender" class="search-form__item--gender-select">
-            <option value="" hidden>性別</option>
-            <option value="4" {{ isset($request['gender']) ? ($request['gender'] == '4' ? 'selected' : '') : '' }}>全て</option>
-            <option value="0" {{ isset($request['gender']) ? ($request['gender'] == '0' ? 'selected' : '') : '' }}>男性</option>
-            <option value="1" {{ isset($request['gender']) ? ($request['gender'] == '1' ? 'selected' : '') : '' }}>女性</option>
-            <option value="2" {{ isset($request['gender']) ? ($request['gender'] == '2' ? 'selected' : '') : '' }}>その他</option>
-          </select>
-        </div>
-        {{-- お問い合わせの種類 --}}
-        <div class="search-form__category">
-          <select name="category_id" class="search-form__item--category-select">
-            <option value="" hidden>お問い合わせの種類</option>
-            @foreach ($categories as $category)
-              <option value="{{ $category['id'] }}" {{ isset($request['category_id']) ? ($request['category_id'] == $category['id'] ? 'selected' : '') : '' }}>{{ $category['content'] }}</option>
-            @endforeach
-          </select>
-        </div>
-        {{-- 日付 --}}
-        <div class="search-form__item--date">
-          <input name="date" type="date" class="search-form__item--date-input" value="{{ isset($request['date']) ? $request['date'] : '' }}">
-        </div>
+        <input name="text" type="text" class="search-form__item--text" placeholder="名前やメールドアレスを入力してください" value="{{ isset($request['text']) ? $request['text'] : '' }}">
+      </div>
+      {{-- 性別 --}}
+      <div class="search-form__item">
+        <select name="gender" class="search-form__item--gender">
+          <option value="" hidden>性別</option>
+          <option value="4" {{ isset($request['gender']) ? ($request['gender'] == '4' ? 'selected' : '') : '' }}>全て</option>
+          <option value="0" {{ isset($request['gender']) ? ($request['gender'] == '0' ? 'selected' : '') : '' }}>男性</option>
+          <option value="1" {{ isset($request['gender']) ? ($request['gender'] == '1' ? 'selected' : '') : '' }}>女性</option>
+          <option value="2" {{ isset($request['gender']) ? ($request['gender'] == '2' ? 'selected' : '') : '' }}>その他</option>
+        </select>
+      </div>
+      {{-- お問い合わせの種類 --}}
+      <div class="search-form__item">
+        <select name="category_id" class="search-form__item--category">
+          <option value="" hidden>お問い合わせの種類</option>
+          @foreach ($categories as $category)
+            <option value="{{ $category['id'] }}" {{ isset($request['category_id']) ? ($request['category_id'] == $category['id'] ? 'selected' : '') : '' }}>{{ $category['content'] }}</option>
+          @endforeach
+        </select>
+      </div>
+      {{-- 日付 --}}
+      <div class="search-form__item">
+        <input name="date" type="date" class="search-form__item--date" value="{{ isset($request['date']) ? $request['date'] : '' }}">
       </div>
       {{-- 検索ボタン --}}
       <div class="search-form__submit">
         <button class="search-form__submit-button" type="submit">検索</button>
       </div>
+      {{-- リセットボタン --}}
+      <div class="reset-form__submit">
+        <a href="/admin">リセット</a>
+      </div>
     </form>
-    {{-- リセットボタン --}}
-    <div class="reset-form__submit">
-      <a href="/admin">リセット</a>
-    </div>
   </div>
 
   {{-- その他操作系 --}}
@@ -92,11 +90,11 @@
     {{-- 項目(1行1レコード) --}}
     @foreach ($contacts as $contact)
       <tr class="contacts-table__row-item">
-        <td>{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
-        <td>{{ $contact->getGenderString($contact['gender']) }}</td>
-        <td>{{ $contact['email'] }}</td>
-        <td>{{ $contact['category']['content'] }}</td>
-        <td>
+        <td class="contacts-table__row-item--name">{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
+        <td class="contacts-table__row-item--gender">{{ $contact->getGenderString($contact['gender']) }}</td>
+        <td class="contacts-table__row-item--email">{{ $contact['email'] }}</td>
+        <td class="contacts-table__row-item--category">{{ $contact['category']['content'] }}</td>
+        <td class="contacts-table__row-item--detail">
           <livewire:modal :params="[
             'id' => $contact['id'],
             'text' => $request['text'],

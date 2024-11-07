@@ -1,60 +1,67 @@
 /*-------------------------------------
+    全体
+-------------------------------------*/
+body {
+    background: #fff;
+}
+
+.main {
+    margin: auto;
+    background: #fff;
+}
+
+/*-------------------------------------
     contact-search
 -------------------------------------*/
 .contact-search {
-    display: flex;
     max-width: 1183px;
     margin: auto;
-    justify-content: space-between;
 }
 
 .search-form {
     display: flex;
-    margin: auto;
     justify-content: space-between;
 }
 
-.search-form__item {
-    display: flex;
-    margin: auto;
-    justify-content: space-between;
-}
-
-.search-form__item--text-input {
+.search-form__item--text {
     width: 347.47px;
     height: 50px;
     background: #f4f4f4;
     border: #e3ded9;
+    padding-left: 20px;
 
     color: #8b7969;
     font-size: 17px;
 }
 
-.search-form__item--gender-select {
+.search-form__item--gender {
     width: 102.48px;
     height: 50px;
     background: #f4f4f4;
     border: #e3ded9;
+    padding-left: 20px;
 
     color: #8b7969;
     font-size: 17px;
 }
 
-.search-form__item--category-select {
+.search-form__item--category {
     width: 223.04px;
     height: 50px;
     background: #f4f4f4;
     border: #e3ded9;
+    padding-left: 20px;
 
     color: #8b7969;
     font-size: 17px;
 }
 
-.search-form__item--date-input {
+.search-form__item--date {
     width: 148.87px;
     height: 50px;
     background: #f4f4f4;
     border: #e3ded9;
+    padding-left: 20px;
 
     color: #8b7969;
     font-size: 17px;
@@ -116,24 +123,25 @@
 
 .control__pagination {
     margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /*-------------------------------------
     contacts-table
 -------------------------------------*/
 .contacts-table {
-    margin: auto;
+    margin: auto auto 100px auto;
     max-width: 1183px;
     width: 100%;
     table-layout: fixed;
 }
 
 .contacts-table * {
-    padding: 10px;
     border-collapse: collapse;
 }
 
-.contacts-table__row-header * {
+.contacts-table__row-header {
     height: 59px;
     background: #8B7969;
     color: #fff;
@@ -146,6 +154,7 @@
 
 .contacts-table__header-name {
     width: 18%;
+    padding-left: 25px;
 }
 
 .contacts-table__header-gender {
@@ -163,7 +172,6 @@
 .contacts-table__header-button {
     width: 100px;
 }
-
 
 .contacts-table__row-item {
     height: 73px;
@@ -183,6 +191,14 @@
     font-size: 18px;
 
     cursor: pointer;
+}
+
+.contacts-table__row-item--name {
+    padding-left: 25px;
+}
+
+.contacts-table__row-item--detail {
+    padding-right: 25px;
 }
 
 .modal {
