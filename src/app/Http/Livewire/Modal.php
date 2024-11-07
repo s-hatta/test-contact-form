@@ -11,14 +11,22 @@ class Modal extends Component
     use WithPagination;
     public $showModal = false;
     public $contact;
+    public $text;
+    public $gender;
+    public $category_id;
+    public $date;
 
     public function mount($params = [])
     {
-        $this->contact = Contact::where('id', '=', $params)->first();
+        $this->contact = Contact::where('id', '=', $params['id'])->first();
+        $this->text = $params['text'];
+        $this->gender = $params['gender'];
+        $this->category_id = $params['category_id'];
+        $this->date = $params['date'];
     }
     public function render()
     {
-        return view('livewire.modal', ['contact' => $this->contact]);
+        return view('livewire.modal');
     }
 
     public function openModal()

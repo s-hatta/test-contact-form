@@ -97,7 +97,13 @@
         <td>{{ $contact['email'] }}</td>
         <td>{{ $contact['category']['content'] }}</td>
         <td>
-          <livewire:modal :params="$contact['id']" />
+          <livewire:modal :params="[
+            'id' => $contact['id'],
+            'text' => $request['text'],
+            'gender' => $request['gender'],
+            'category_id' => $request['category_id'],
+            'date' => $request['date'],
+            ]" />
         </td>
       </tr>
     @endforeach

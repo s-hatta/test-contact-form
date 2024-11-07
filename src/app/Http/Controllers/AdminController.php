@@ -53,7 +53,7 @@ class AdminController extends Controller
     {
         Contact::find($request->id)->delete();
 
-        return redirect('/admin');
+        return $this->index($request);
     }
 
     public function export(Request $request)

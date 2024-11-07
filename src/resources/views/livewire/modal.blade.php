@@ -62,6 +62,10 @@
           <form class="modal-form" method="POST" action="/admin">
             @method('DELETE')
             @csrf
+            <input type="hidden" name="text" value={{$text}}>
+            <input type="hidden" name="gender" value={{$gender}}>
+            <input type="hidden" name="category_id" value={{$category_id}}>
+            <input type="hidden" name="date" value={{$date}}>
             <input class="id" name="id" value={{ $contact['id'] }} hidden>
             <button type="submit">削除</button>
           </form>
