@@ -22,7 +22,7 @@
             <input class="contact-table__item--last-name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 太郎">
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             @if ($errors->has('first_name'))
@@ -44,7 +44,7 @@
             <label><input type="radio" name="gender" value="2" {{ old('gender') === '2' ? 'checked' : '' }}>その他</label>
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             {{ $errors->first('gender') }}
@@ -60,7 +60,7 @@
             <input class="contact-table__item--text" type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             {{ $errors->first('email') }}
@@ -80,7 +80,7 @@
             <input class="contact-table__item--tell" type="text" name='tell_3' value="{{ old('tell_3') }}" placeholder="5678">
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             @if ($errors->has('tell_1'))
@@ -102,7 +102,7 @@
             <input class="contact-table__item--text" type="text" name="address" value="{{ old('address') }}" placeholder="例: 東京都渋谷区千駄々谷1-2-3">
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             {{ $errors->first('address') }}
@@ -118,7 +118,7 @@
             <input class="contact-table__item--text" type="text" name="building" value="{{ old('building') }}" placeholder="例: 千駄ヶ谷マンション101">
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert"></tr>
+        <tr class="contact-table__row--alert"></tr>
 
         {{-- お問い合わせの種類 --}}
         <tr class="contact-table__row">
@@ -135,7 +135,7 @@
             </select>
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             {{ $errors->first('category_id') }}
@@ -151,7 +151,7 @@
             <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
           </td>
         </tr>
-        <tr class="contact-tavle__row--alert">
+        <tr class="contact-table__row--alert">
           <td></td>
           <td>
             {{ $errors->first('detail') }}
