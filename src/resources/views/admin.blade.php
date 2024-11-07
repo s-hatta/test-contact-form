@@ -36,6 +36,7 @@
             <option value="2" {{ isset($request['gender']) ? ($request['gender'] == '2' ? 'selected' : '') : '' }}>その他</option>
           </select>
         </div>
+        {{-- お問い合わせの種類 --}}
         <div class="search-form__category">
           <select name="category_id" class="search-form__item--category-select">
             <option value="" hidden>お問い合わせの種類</option>
@@ -44,14 +45,17 @@
             @endforeach
           </select>
         </div>
+        {{-- 日付 --}}
         <div class="search-form__item--date">
           <input name="date" type="date" class="search-form__item--date-input" value="{{ isset($request['date']) ? $request['date'] : '' }}">
         </div>
       </div>
+      {{-- 検索ボタン --}}
       <div class="search-form__submit">
         <button class="search-form__submit-button" type="submit">検索</button>
       </div>
     </form>
+    {{-- リセットボタン --}}
     <div class="reset-form__submit">
       <a href="/admin">リセット</a>
     </div>
@@ -59,6 +63,7 @@
 
   {{-- その他操作系 --}}
   <div class="control">
+    {{-- 検索結果をCSVで出力(ブラウザからダウンロード) --}}
     <div class="control__export">
       <form class="export-form" method="GET" action="{{ route('admin.export') }}">
         <input type="hidden" name="text" value="{{ request('text') }}">
@@ -68,6 +73,7 @@
         <button class="control__export--button">エクスポート</button>
       </form>
     </div>
+    {{-- ページネーション --}}
     <div class="control__pagination">
       {{ $contacts->appends(request()->query())->links('layouts.pagination') }}
     </div>
@@ -75,7 +81,7 @@
 
   {{-- お問い合わせテーブル --}}
   <table class='contacts-table'>
-
+    {{-- 項目名 --}}
     <tr class="contacts-table__row-header">
       <th class="contacts-table__header-name">お名前</th>
       <th class="contacts-table__header-gender">性別</th>
@@ -83,7 +89,7 @@
       <th class="contacts-table__header-category">お問い合わせの種類</th>
       <th class="contacts-table__header-button"></th>
     </tr>
-
+    {{-- 項目(1行1レコード) --}}
     @foreach ($contacts as $contact)
       <tr class="contacts-table__row-item">
         <td>{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
