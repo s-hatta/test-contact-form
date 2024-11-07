@@ -5,27 +5,36 @@
 }
 
 .pagination-box {
-    font-size: 18px;
     height: 31px;
     width: 31px;
-    text-align: center;
+
     border-left: solid;
     border-top: solid;
     border-bottom: solid;
     border-width: 1px;
     border-color: #8B7969;
+
+    font-size: 18px;
+    text-align: center;
 }
 
 .pagination-box:last-child {
-    font-size: 18px;
     height: 31px;
     width: 31px;
-    text-align: center;
     border-right: solid;
     border-top: solid;
     border-bottom: solid;
     border-width: 1px;
     border-color: #8B7969;
+
+    font-size: 18px;
+    text-align: center;
+}
+
+.pagination-box a {
+    font-size: 18px;
+    color: #8B7969;
+    text-decoration: none;
 }
 
 .pagination-box[part="now-page"] {
