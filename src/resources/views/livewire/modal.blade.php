@@ -59,7 +59,7 @@
             <td class="modal-table__column-item">{{ $contact['detail'] }}</td>
             </tr>
           </table>
-          <form class="modal-form" method="POST" action={{ route('admin.delete') }}>
+          <form class="modal-form" method="POST" action="/admin">
             @method('DELETE')
             @csrf
             <input class="id" name="id" value={{ $contact['id'] }} hidden>
