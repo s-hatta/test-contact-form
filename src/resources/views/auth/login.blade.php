@@ -10,7 +10,7 @@
 
 @section('content')
   <div class="login__content">
-    <form class="form" action="/login" method="post">
+    <form class="form" action="{{ route('login') }}" method="post">
       @csrf
 
       {{-- メールアドレス --}}
