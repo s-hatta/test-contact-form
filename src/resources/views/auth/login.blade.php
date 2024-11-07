@@ -23,9 +23,7 @@
             <input type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com" />
           </div>
           <div class="form__error">
-            @error('email')
-              {{ $message }}
-            @enderror
+            {{ $errors->first('email') }}
           </div>
         </div>
       </div>
@@ -40,9 +38,7 @@
             <input type="password" name="password" placeholder="例: coachtech06" />
           </div>
           <div class="form__error">
-            @error('password')
-              {{ $message }}
-            @enderror
+            {{ $errors->first('password') }}
           </div>
         </div>
       </div>
