@@ -24,19 +24,7 @@
           <th class="confirm-table__header">性別</th>
           <td class="confirm-table__text">
             <input type="text" name="gender" value="{{ $contact['gender'] }}" readonly hidden />
-            @switch($contact['gender'])
-              @case(0)
-                男性
-              @break
-
-              @case(1)
-                女性
-              @break
-
-              @case(2)
-                その他
-              @break
-            @endswitch
+            {{ $genderStr }}
           </td>
         </tr>
 

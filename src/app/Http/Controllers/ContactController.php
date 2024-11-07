@@ -32,7 +32,8 @@ class ContactController extends Controller
         ]);
 
         $category = Category::find($contact['category_id']);
-        return view('confirm', compact('contact', 'category'));
+        $genderStr = Contact::getGenderString($request['gender']);
+        return view('confirm', compact('contact', 'category', 'genderStr'));
     }
 
     public function store(Request $request)
