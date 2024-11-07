@@ -18,17 +18,17 @@
             お名前 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input class="contact-table__item--first-name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 山田">
-            <input class="contact-table__item--last-name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 太郎">
+            <input class="contact-table__item--last-name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 山田">
+            <input class="contact-table__item--first-name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 太郎">
           </td>
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
           <td class="contact-table__item--alert">
-            @if ($errors->has('first_name'))
-              {{ $errors->first('first_name') }}
-            @else
+            @if ($errors->has('last_name'))
               {{ $errors->first('last_name') }}
+            @else
+              {{ $errors->first('first_name') }}
             @endif
           </td>
         </tr>
