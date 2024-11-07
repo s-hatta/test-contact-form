@@ -14,53 +14,47 @@
       @csrf
 
       {{-- お名前 --}}
-      <div class="form__group">
-        <div class="form__group-title">
-          <span class="form__label--item">お名前</span>
+      <div class="form-group">
+        <div class="form-group__title">
+          <span class="form-group__title--item">お名前</span>
         </div>
-        <div class="form__group-content">
-          <div class="form__input--text">
-            <input type="text" name="name" value="{{ old('name') }}" placeholder="例: 山田　太郎" />
-          </div>
-          <div class="form__error">
-            {{ $errors->first('name') }}
-          </div>
+        <div class="form-group__input">
+          <input class="form-group__input--text" type="text" name="name" value="{{ old('name') }}" placeholder="例: 山田　太郎" />
+        </div>
+        <div class="form-group__error">
+          {{ $errors->first('name') }}
         </div>
       </div>
 
-      {{-- メールアドレス --}}
-      <div class="form__group">
-        <div class="form__group-title">
-          <span class="form__label--item">メールアドレス</span>
+ 	  {{-- メールアドレス --}}
+      <div class="form-group">
+        <div class="form-group__title">
+          <span class="form-group__title--item">メールアドレス</span>
         </div>
-        <div class="form__group-content">
-          <div class="form__input--text">
-            <input type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com"/>
-          </div>
-          <div class="form__error">
-            {{ $errors->first('email') }}
-          </div>
+        <div class="form-group__input">
+          <input class="form-group__input--text" type="text" name="email" value="{{ old('email') }}" placeholder="例: test@example.com" />
+        </div>
+        <div class="form-group__error">
+          {{ $errors->first('email') }}
         </div>
       </div>
 
       {{-- パスワード --}}
-      <div class="form__group">
-        <div class="form__group-title">
-          <span class="form__label--item">パスワード</span>
+      <div class="form-group">
+        <div class="form-group__title">
+          <span class="form-group__title--item">パスワード</span>
         </div>
-        <div class="form__group-content">
-          <div class="form__input--text">
-            <input type="password" name="password" placeholder="例: coachtech06"/>
-          </div>
-          <div class="form__error">
-            {{ $errors->first('password') }}
-          </div>
+        <div class="form-group__input">
+          <input class="form-group__input--text" type="password" name="password" placeholder="例: coachtech06" />
+        </div>
+        <div class="form-group__error">
+          {{ $errors->first('password') }}
         </div>
       </div>
 
       {{-- 登録ボタン --}}
-      <div class="form__button">
-        <button class="form__button-submit" type="submit">登録</button>
+      <div class="form-group__button">
+        <button class="form-group__button--submit" type="submit">登録</button>
       </div>
     </form>
   </div>

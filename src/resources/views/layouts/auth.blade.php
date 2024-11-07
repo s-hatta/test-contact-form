@@ -8,7 +8,6 @@
   <title>@yield('title')</title>
   <link href='https://fonts.googleapis.com/css?family=Inika' rel='stylesheet'>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/auth.css') }}" />
   @yield('css')
 </head>
