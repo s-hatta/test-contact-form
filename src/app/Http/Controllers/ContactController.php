@@ -22,9 +22,9 @@ class ContactController extends Controller
             'last_name',
             'gender',
             'email',
-            'tell_1',
-            'tell_2',
-            'tell_3',
+            'tell1',
+            'tell2',
+            'tell3',
             'address',
             'building',
             'category_id',
@@ -51,7 +51,7 @@ class ContactController extends Controller
             'category_id',
             'detail',
         ]);
-        $contact += array('tell' => $request['tell_1'] . $request['tell_2'] . $request['tell_3']);
+        $contact += array('tell' => $request['tell1'] . $request['tell2'] . $request['tell3']);
         Contact::create($contact);
         return view('thanks');
     }

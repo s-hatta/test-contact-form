@@ -73,22 +73,22 @@
             電話番号 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input class="contact-table__item--tell" type="text" name='tell_1' value="{{ old('tell_1') }}" placeholder="080">
+            <input class="contact-table__item--tell" type="text" name='tell1' value="{{ old('tell1') }}" placeholder="080">
             <span>-</span>
-            <input class="contact-table__item--tell" type="text" name='tell_2' value="{{ old('tell_2') }}" placeholder="1234">
+            <input class="contact-table__item--tell" type="text" name='tell2' value="{{ old('tell2') }}" placeholder="1234">
             <span>-</span>
-            <input class="contact-table__item--tell" type="text" name='tell_3' value="{{ old('tell_3') }}" placeholder="5678">
+            <input class="contact-table__item--tell" type="text" name='tell3' value="{{ old('tell3') }}" placeholder="5678">
           </td>
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
           <td class="contact-table__item--alert">
-            @if ($errors->has('tell_1'))
-              {{ $errors->first('tell_1') }}
-            @elseif ($errors->has('tell_2'))
-              {{ $errors->first('tell_2') }}
+            @if ($errors->has('tell1'))
+              {{ $errors->first('tell1') }}
+            @elseif ($errors->has('tell2'))
+              {{ $errors->first('tell2') }}
             @else
-              {{ $errors->first('tell_3') }}
+              {{ $errors->first('tell3') }}
             @endif
           </td>
         </tr>

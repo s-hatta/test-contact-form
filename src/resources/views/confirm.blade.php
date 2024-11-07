@@ -52,9 +52,9 @@
         <tr class="confirm-table__row">
           <th class="confirm-table__header">電話番号</th>
           <td class="confirm-table__text">
-            <input type="tell_1" name="tell_1" value="{{ $contact['tell_1'] }}" readonly />
-            <input type="tell_2" name="tell_2" value="{{ $contact['tell_2'] }}" readonly />
-            <input type="tell_3" name="tell_3" value="{{ $contact['tell_3'] }}" readonly />
+            <input type="tell1" name="tell1" value="{{ $contact['tell1'] }}" readonly />
+            <input type="tell2" name="tell2" value="{{ $contact['tell2'] }}" readonly />
+            <input type="tell3" name="tell3" value="{{ $contact['tell3'] }}" readonly />
           </td>
         </tr>
 
