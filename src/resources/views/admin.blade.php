@@ -86,20 +86,7 @@
     @foreach ($contacts as $contact)
       <tr class="contacts-table__row-item">
         <td>{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
-        <td>
-          @switch($contact['gender'])
-            @case(0)
-              男性
-            @break
-
-            @case(1)
-              女性
-            @break
-
-            @default
-              その他
-          @endswitch
-        </td>
+        <td>{{ $contact->getGenderString($contact['gender']) }}</td>
         <td>{{ $contact['email'] }}</td>
         <td>{{ $contact['category']['content'] }}</td>
         <td>
