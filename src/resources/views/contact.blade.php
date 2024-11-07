@@ -24,7 +24,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             @if ($errors->has('first_name'))
               {{ $errors->first('first_name') }}
             @else
@@ -46,7 +46,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             {{ $errors->first('gender') }}
           </td>
         </tr>
@@ -62,7 +62,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             {{ $errors->first('email') }}
           </td>
         </tr>
@@ -82,7 +82,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             @if ($errors->has('tell_1'))
               {{ $errors->first('tell_1') }}
             @elseif ($errors->has('tell_2'))
@@ -104,7 +104,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             {{ $errors->first('address') }}
           </td>
         </tr>
@@ -137,7 +137,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             {{ $errors->first('category_id') }}
           </td>
         </tr>
@@ -153,7 +153,7 @@
         </tr>
         <tr class="contact-table__row--alert">
           <td></td>
-          <td>
+          <td class="contact-table__item--alert">
             {{ $errors->first('detail') }}
           </td>
         </tr>
