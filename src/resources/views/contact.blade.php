@@ -18,8 +18,10 @@
             お名前 <span class="color-red">※</span>
           </th>
           <td class="contact-table__item">
-            <input class="contact-table__item--last-name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 山田">
-            <input class="contact-table__item--first-name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 太郎">
+            <div class="contact-table__item--name">
+              <input class="contact-table__item--last-name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例: 山田">
+              <input class="contact-table__item--first-name" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例: 太郎">
+            </div>
           </td>
         </tr>
         <tr class="contact-table__row--alert">
@@ -74,9 +76,9 @@
           </th>
           <td class="contact-table__item">
             <input class="contact-table__item--tell" type="text" name='tell1' value="{{ old('tell1') }}" placeholder="080">
-            <span>-</span>
+            <span class="contact-table-item--tell-hyphen">-</span>
             <input class="contact-table__item--tell" type="text" name='tell2' value="{{ old('tell2') }}" placeholder="1234">
-            <span>-</span>
+            <span class="contact-table-item--tell-hyphen">-</span>
             <input class="contact-table__item--tell" type="text" name='tell3' value="{{ old('tell3') }}" placeholder="5678">
           </td>
         </tr>

@@ -27,8 +27,22 @@
     width: 100%;
 }
 
+.contact-table__item--name {
+    display: flex;
+    column-gap: 20px;
+}
+
+
+.contact-table__item--last-name, .contact-table__item--first-name {
+    flex: 1;
+}
+
 .contact-table__item--tell {
     width: 178.12px;
+    height: 38px;
+}
+
+.contact-table__item--tell-hyphen {
     height: 38px;
 }
 
