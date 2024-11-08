@@ -27,7 +27,6 @@ $ docker　compose exec php bash
 5. .envファイルの設定
 ```
 /var/www# cp .env.example .env
-/var/www# exit
 ```
 
 6. .envファイルを編集（+は追加する行、-は削除する行）
