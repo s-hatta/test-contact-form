@@ -32,7 +32,7 @@
           <span class="form-group__title--item">パスワード</span>
         </div>
         <div class="form-group__input">
-          <input class="form-group__input--text" type="password" name="password" placeholder="例: coachtech06" />
+          <input class="form-group__input--text" type="password" name="password" placeholder="例: coachtech1106" />
         </div>
         <div class="form-group__error">
           {{ $errors->first('password') }}
