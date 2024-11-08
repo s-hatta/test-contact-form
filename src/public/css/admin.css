@@ -201,43 +201,95 @@ body {
     padding-right: 25px;
 }
 
+/*-------------------------------------
+    詳細画面（モーダルウィンドウ）
+-------------------------------------*/
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 1;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 805px;
+    background-color: #fff;
 }
 
-.close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    color: black;
+.modal-wrapper {
+    width: 100%;
+    max-height: calc(100vh - 100px);
+    overflow-y: scroll;
+
+    border: 1px solid #8b7969;
+}
+
+.modal-close {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.modal-close__button {
+    top: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    margin-top: 40px;
+    margin-right: 40px;
+
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #8b7969;
+
+    color: #8b7969;
+    font-size: 30px;
     text-decoration: none;
+    text-align: center;
+    line-height: 35px;
+
     cursor: pointer;
     transform: translate(50%, -50%);
 }
 
-.modal-wrapper {
-    position: relative;
-    width: 80%;
-    max-width: 500px;
-    max-height: 70%;
-    padding: 20px;
+.modal-table {
     margin: auto;
-    overflow: scroll;
-    background-color: #FEFEFE;
-    border-radius: 5px;
+    border-collapse: separate;
+    border-spacing: 40px 40px;
 }
 
-.modal-content h1 {
-    margin: 0;
-    font-size: 4rem;
-    line-height: 1.2em;
-    letter-spacing: -0.02em;
+.modal-table__column-header {
+    width: auto;
+
+    color: #8b7969;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.modal-table__column-item {
+    max-width: 413px;
+
+    color: #8b7969;
+    font-size: 18px;
+}
+
+.modal-form {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.modal-form__submit {
+    background: #ba370d;
+    padding: 4px 20px;
+    border: none;
+
+    color: #fff;
+    font-size: 18px;
+
+    cursor: pointer;
 }
