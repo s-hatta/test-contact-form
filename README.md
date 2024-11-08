@@ -59,8 +59,8 @@ DB_PORT=3306
 
 9. シーディング
 ```
-php artisan db:seed
-exit
+/var/www# php artisan db:seed
+/var/www# exit
 ```
 
 ## 使用技術(実行環境)
